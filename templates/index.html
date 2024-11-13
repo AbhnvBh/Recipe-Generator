@@ -1,0 +1,80 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Recipe Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <div class="container">
+        <h1 class="title">AI Recipe Generator<span class="accent">.</span></h1>
+        <div class="card">
+            <div class="input-section">
+                <div class="input-group">
+                    <label>Available Ingredients</label>
+                    <textarea id="ingredients" placeholder="e.g., chicken, rice, tomatoes..."></textarea>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Cooking Time</label>
+                        <select id="cookingTime">
+                            <option value="quick">Quick (< 30 mins)</option>
+                            <option value="medium">Medium (30-60 mins)</option>
+                            <option value="long">Long (> 60 mins)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Difficulty Level</label>
+                        <select id="difficulty">
+                            <option value="easy">Beginner</option>
+                            <option value="medium">Intermediate</option>
+                            <option value="hard">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Dietary Preferences</label>
+                        <input type="text" id="preferences" placeholder="e.g., vegetarian, keto...">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Allergies</label>
+                        <input type="text" id="allergies" placeholder="e.g., nuts, dairy...">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Cuisine Type</label>
+                    <select id="cuisine">
+                        <option value="any">Any</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="italian">Italian</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="indian">Indian</option>
+                        <option value="korean">Korean</option>
+                    </select>
+                </div>
+
+                <button onclick="generateRecipe()" class="generate-btn">
+                    <span>Generate Recipe</span>
+                    <div class="loading-spinner"></div>
+                </button>
+            </div>
+        </div>
+
+        <div id="recipe-output" class="recipe-card"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
